@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "simple": {
+      "format": "[%(asctime)s] - [%(levelname)s] - %(message)s"
+    },
+    "extra": {"format":"%(asctime)-16s %(name)-8s %(filename)-12s %(lineno)-6s %(funcName)-30s %(levelname)-8s %(message)s",
+              "datefmt":"%m-%d %H:%M:%S"}
+  },
+
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "level": "INFO",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout"
+    },
+
+    "info_file_handler": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "INFO",
+      "formatter": "simple",
+      "filename": "logs/no443.log",
+      "maxBytes": 10485760,
+      "backupCount": 40,
+      "encoding": "utf8"
+    },
+
+    "warn_file_handler": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "WARNING",
+      "formatter": "simple",
+      "filename": "logs/f5s.log",
+      "maxBytes": 10485760,
+      "backupCount": 40,
+      "encoding": "utf8"
+    },
+
+    "error_file_handler": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "ERROR",
+      "formatter": "simple",
+      "filename": "logs/notF5s.log",
+      "maxBytes": 10485760,
+      "backupCount": 40,
+      "encoding": "utf8"
+    }
+  },
+
+  "loggers": {
+    "scraper": {
+      "level": "INFO",
+      "handlers": ["console"],
+      "propagate": "no"
+    }
+  },
+
+  "root": {
+    "handlers": ["console","info_file_handler","warn_file_handler","error_file_handler"],
+    "level": "INFO"
+  }
+
+}
