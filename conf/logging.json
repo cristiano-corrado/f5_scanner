@@ -58,7 +58,7 @@
 
   "root": {
     "handlers": ["console","info_file_handler","warn_file_handler","error_file_handler"],
-    "level": "INFO"
+    "level": "NOTSET"
   }
 
 }

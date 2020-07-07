@@ -71,7 +71,7 @@ def main(argv):
         cidr = [ ip ]
     elif file:
         with open(file,'r')  as scanlist:
-            cidr = scanlist.readlines()[0].split(',')
+            cidr = scanlist.readlines()
     else:
         sys.exit()
 
@@ -79,7 +79,7 @@ def main(argv):
 
     try:
         for ip in cidr:
-            pool.add_task(scan,ip)
+            pool.add_task(scan,ip.rstrip())
         pool.wait_completion()
     except KeyboardInterrupt:
         logging.critical("CTRL+C Pressed. gracefully closing threads...")
