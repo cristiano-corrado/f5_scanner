@@ -51,7 +51,7 @@ def scan(ip):
 
 def main(argv):
     # define the program description
-    text = 'A Python program that bruteforce id.giffgaff.com. Written by ccc.'
+    text = 'F5s CVE-2020-5902 mass scanner Written by ccc.'
     # initiate the parser with a description
     parser = argparse.ArgumentParser(description=text)
     parser.add_argument('--ip', '-i', help='provide single ip')
